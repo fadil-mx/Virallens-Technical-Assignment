@@ -16,7 +16,8 @@ app.use(
   cors({
     origin: [
       'http://localhost:5173',
-      'https://aiclient-5kmyy0fc7-fadhilshareef369-6266s-projects.vercel.app',
+      'https://aiclient-eight.vercel.app',
+      /\.vercel\.app$/,
     ],
   }),
 )
