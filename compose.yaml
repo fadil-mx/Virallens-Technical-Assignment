@@ -1,0 +1,39 @@
+services:
+  server:
+    build: ./server
+    container_name: ai-support-server
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+    environment:
+      - MONGO_URL=${MONGO_URL}
+      - JWT_SECRET=${JWT_SECRET}
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
+
+    develop:
+      watch:
+        - path: ./server/package.json
+          action: rebuild
+        - path: ./server/package-lock.json
+          action: rebuild
+        - path: ./server
+          target: /app
+          action: sync
+
+  client:
+    depends_on:
+      - server
+    build: ./client
+    container_name: ai-support-client
+    restart: unless-stopped
+    ports:
+      - 5173:5173
+    develop:
+      watch:
+        - path: ./client/package.json
+          action: rebuild
+        - path: ./client/package-lock.json
+          action: rebuild
+        - path: ./client
+          target: /app
+          action: sync

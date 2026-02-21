@@ -12,7 +12,7 @@ const callAI = async (messages) => {
         'X-Title': 'AI Support Agent',
       },
       body: JSON.stringify({
-        model: 'stepfun/step-3.5-flash:free',
+        model: 'stepfun/step-3.5-flash:free2',
         messages,
         // max_tokens: 500,
       }),
