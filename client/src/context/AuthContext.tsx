@@ -10,8 +10,7 @@ export const AuthContext = createContext<AuthContextType | null>(null)
 
 const AuthContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [token, settoken] = useState<string | null>(null)
-  const url = 'http://localhost:3000'
-
+  const url = import.meta.env.VITE_API_URL || 'http://localhost:3000'
   useEffect(() => {
     async function loaddata() {
       if (localStorage.getItem('token')) {
