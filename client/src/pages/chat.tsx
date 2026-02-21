@@ -1,4 +1,4 @@
-import { ArrowUp, TextSelect } from 'lucide-react'
+import { ArrowUp, Loader2, TextSelect } from 'lucide-react'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import { useNavigate } from 'react-router-dom'
@@ -62,12 +62,19 @@ const Chat = () => {
         )}
       </div>
       <div className='flex-1 bg-gray-100 flex justify-center items-center '>
-        <div className='text-center space-y-4'>
-          <h1 className='text-4xl font-bold'>How can I help you today? </h1>
-          <p className='text-gray-500'>
-            Ask me anything — I'm here to support you.
-          </p>
-        </div>
+        {loading ? (
+          <div className='text-center space-y-4'>
+            <Loader2 size={40} className='animate-spin text-blue-600 mx-auto' />
+            <p className='text-gray-500 text-sm'>Starting conversation...</p>
+          </div>
+        ) : (
+          <div className='text-center space-y-4'>
+            <h1 className='text-4xl font-bold'>How can I help you today?</h1>
+            <p className='text-gray-500'>
+              Ask me anything — I'm here to support you.
+            </p>
+          </div>
+        )}
       </div>
       <div className='w-full p-4 border-t bg-white'>
         <div className='max-w-3xl mx-auto flex items-center gap-2 rounded-xl border border-gray-300 bg-gray-50 px-3 py-2 shadow-sm '>
