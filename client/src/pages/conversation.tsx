@@ -64,7 +64,7 @@ const ChatConversation = () => {
 
       setMessages((prev) => [
         ...prev,
-        { role: 'assistant', content: res.data.reply },
+        { role: 'assistant', content: res.data.reply.trim() },
       ])
       setLoading(false)
       textareaRef.current?.focus()
@@ -135,7 +135,7 @@ const ChatConversation = () => {
 
       {/* in here i use ai help to make the ui better */}
       <div className='flex-1 bg-gray-100 overflow-y-auto'>
-        <div className='max-w-3xl mx-auto px-4 py-6 space-y-6'>
+        <div className='max-w-3xl mx-auto px-4 py-6 flex flex-col gap-4'>
           {!initialLoading &&
             messages.map((msg, idx) => (
               <div
@@ -157,7 +157,7 @@ const ChatConversation = () => {
                       : 'bg-white border border-gray-200 text-gray-800 rounded-2xl rounded-tl-sm'
                   }`}
                 >
-                  {msg.content}
+                  {msg.content.trim()}
                 </div>
 
                 {msg.role === 'user' && (

@@ -12,7 +12,7 @@ const callAI = async (messages) => {
         'X-Title': 'AI Support Agent',
       },
       body: JSON.stringify({
-        model: 'arcee-ai/trinity-mini:free',
+        model: 'stepfun/step-3.5-flash:free',
         messages,
         // max_tokens: 500,
       }),
@@ -20,6 +20,7 @@ const callAI = async (messages) => {
   )
 
   const data = await response.json()
+  // console.log('response Data:', data)
   return data.choices[0].message.content
 }
 
