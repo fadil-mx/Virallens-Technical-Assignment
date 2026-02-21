@@ -24,7 +24,7 @@ Built as a full-stack project using React, Node.js, MongoDB, and OpenRouter for 
 
 **Database** — MongoDB Atlas
 
-**AI** — OpenRouter (free models — falls back automatically if one is rate limited)
+**AI** — OpenRouter (free models )
 
 **Auth** — JWT + bcrypt
 
@@ -39,7 +39,7 @@ You need Node 18+, and a MongoDB Atlas account.
 **1. Clone and install**
 
 ```bash
-git clone https://github.com/your-username/ai-customer-support.git
+git clone https://github.com/fadil-mx/Virallens-Technical-Assignment.git
 cd ai-customer-support
 ```
 
